@@ -24,7 +24,7 @@ class LoginController extends Controller
             $response['status'] = 0;
             $response['message'] = "Utente già esistente";
             $response['code'] = 409;
-
+            return response()->json($response);
         } else {
             $user = User::create([
                 'name' => $request->name,
@@ -33,8 +33,6 @@ class LoginController extends Controller
                 'codicefiscale' => $request->codicefiscale
 
             ]);
-
-
             $response['status'] = 1;
             $response['message'] = "Utente registrato con successo";
             $response['code'] = 200;
