@@ -1,0 +1,85 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <label>
+    <p class="label-txt">Nome</p>
+    <input type="text" class="form-control" name="name" placeholder="Nome" formControlName="name" [ngClass]="{ 'is-invalid' : submitted && f.name.errors}">
+
+    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+      <div *ngIf="f.name.errors.required">
+
+        Nome non valido
+      </div>
+    </div>
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  <label>
+    <p class="label-txt">Email</p>
+    <input type="text" class="form-control" name="email" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid' : submitted && f.email.errors}">
+
+
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      <div *ngIf="f.email.errors.required">
+
+        Email non valida
+      </div>
+
+      <div *ngIf="f.email.errors.email">
+
+        L'email deve essere valida
+      </div>
+    </div>
+
+
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  <label>
+    <p class="label-txt">Password</p>
+    <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid' : submitted && f.password.errors}">
+
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">
+
+        Password non valida
+      </div>
+
+      <div *ngIf="f.password.errors.minlength">
+
+        Password troppo breve
+      </div>
+    </div>
+
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+
+
+  <label>
+    <p class="label-txt">Conferma Password</p>
+    <input type="password" class="form-control" placeholder="Conferma Password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid' : submitted && f.confirmPassword.errors}">
+
+
+
+
+
+
+
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+
+
+  <button class="btn btn-primary btn-lg btn-block" type="submit">Registrati</button>
+  <button class="btn btn-primary btn-lg btn-block" type="submit"><a href="login">Indietro</a></button>
+</form>
